@@ -35,6 +35,7 @@ const Manager = () => {
   }
   const savepassword = () => {
     console.log(form)
+    if(form.site.length>0 && form.username.length>0 && form.password.length>0 ){
     setpasswordarray([...passwordarray, {...form,id:uuidv4()}])
     localStorage.setItem("password", JSON.stringify([...passwordarray, {...form,id:uuidv4()}]))
     console.log([...passwordarray, form])
@@ -42,7 +43,10 @@ const Manager = () => {
       position: "bottom-right",
       theme: "dark"
       });
-      setform({site:"",username:"",password:""})
+      setform({site:"",username:"",password:""})}
+      else{
+        alert("Field can't be empty!")
+      }
 
 
   }
